@@ -43,9 +43,9 @@ Copy and paste the below into your site after the Segment.com snippet. Simples. 
 
 {% highlight html %}
 <script type="text/javascript">
-!function(){var r=window.sitehound=window.sitehound||{};if(!r.done)if(r.invoked){if(window.console&&console.error){var n="SiteHound snippet included twice";console.error(n)}r.trackDebugWarn(n)}else{r.invoked=!0,r.queue=[];for(var e=["track","trackAndCount","trackLink","trackOnce","trackDebugInfo","trackDebugWarn","trackError"],o=function(n){return function(){var e=Array.prototype.slice.call(arguments);return e.unshift(n),r.queue.push(e),r}},t=0;t<e.length;t++){var c=e[t];r[c]=o(c)}r.done=function(){r.isDone=!0},r.SNIPPET_VERSION="1.0"}}();
+!function(){var t=window.sitehound=window.sitehound||{},n=("https:"===document.location.protocol?"https://":"http://")+"andyyoung.github.io/sitehound/sitehound-min.js";if(!t.sniff){if(t.invoked){var e="SiteHound snippet included twice";return window.console&&console.error&&console.error(e),void t.trackDebugWarn(e)}t.invoked=!0,t.queue=[];for(var r=["doNotTrack","identify","identifyOnce","ready","track","trackAndCount","trackLink","trackForm","trackOnce","trackDebugInfo","trackDebugWarn","trackError"],o=function(n){return function(){var e=Array.prototype.slice.call(arguments);return e.unshift(n),t.queue.push(e),t}},i=0;i<r.length;i++){var a=r[i];t[a]=o(a)}t.sniff=t.done=function(){t.isDone=!0},t.SNIPPET_VERSION="1.3",t.load=function(e){t.adaptor=e;var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src=n+"?snippet_ver="+t.SNIPPET_VERSION;var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(r,o)}}}();
+sitehound.load("segment");
 </script>
-<script type="text/javascript" async="1" src="http://andyyoung.github.io/sitehound/sitehound.js"></script>
 {% endhighlight %}
 
 ### 3. Add config for your site, & trigger the library when done
