@@ -33,6 +33,7 @@ SiteHound relies on the Segment.com snippet to send data to your analytics tooli
   - _The snippet looks like the example below._
   - _Ensure the API key for the correct project is filled out in the call to `analytics.load()`._
 
+<nowrap>
 {% highlight html %}
 <script type="text/javascript">
 !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0"; 
@@ -41,17 +42,20 @@ analytics.page();
 }}(); 
 </script>
 {% endhighlight %}
+</nowrap>
 
 ### 2 - Add the SiteHound snippet
 
 Copy and paste the below into your site after the Segment.com snippet. Simples. 👌
 
+<nowrap>
 {% highlight html %}
 <script type="text/javascript">
 !function(){var t=window.sitehound=window.sitehound||{},n=("https:"===document.location.protocol?"https://":"http://")+"andyyoung.github.io/sitehound/sitehound-min.js";if(!t.sniff){if(t.invoked){var e="SiteHound snippet included twice";return window.console&&console.error&&console.error(e),void t.trackDebugWarn(e)}t.invoked=!0,t.queue=[];for(var r=["doNotTrack","identify","identifyOnce","ready","track","trackAndCount","trackLink","trackForm","trackOnce","trackDebugInfo","trackDebugWarn","trackError"],o=function(n){return function(){var e=Array.prototype.slice.call(arguments);return e.unshift(n),t.queue.push(e),t}},i=0;i<r.length;i++){var a=r[i];t[a]=o(a)}t.sniff=t.done=function(){t.isDone=!0},t.SNIPPET_VERSION="1.3",t.load=function(e){t.adaptor=e;var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src=n+"?snippet_ver="+t.SNIPPET_VERSION;var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(r,o)}}}();
 sitehound.load("segment");
 </script>
 {% endhighlight %}
+</nowrap>
 
 ### 3. Add config for your site & trigger the tracking when done
 
