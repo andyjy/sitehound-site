@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+    <!-- add after bootstrap.min.css -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.css">
+  </head>
+  <body>
+    <div class="container">
+
+      {% include header.html %}
+
+      <div class="row">
+        <div class="col-sm-9">
+
+          {{ content }}
+
+        </div>
+        <div class="col-sm-3 sidecol">
+          <nav id="toc"></nav>
+        </div>
+      </div>
+
+      {% include footer.html %}
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ "/js/bootstrap.min.js" | prepend: site.url }}"></script>
+    <!-- add after bootstrap.min.js -->
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ "/js/ie10-viewport-bug-workaround.js" | prepend: site.url }}"></script>
+    <script type="text/JavaScript">
+(function() {
+$().ready(function() {
+  console.log('yo');
+  var toc = $('#toc');
+  Toc.init(toc);
+  toc.append($('<ul class="nav top"><li><a href="#top">Back to top</a></li></ul>'));
+  $('body').scrollspy({
+    target: '#toc'
+  });
+  toc.affix({
+    offset: {
+      top: 151,
+      bottom: function () {
+        return (this.bottom = $('.footer').outerHeight(true) + 100)
+      }
+    }
+  })
+});
+})();
+    </script>
+  </body>
+</html>

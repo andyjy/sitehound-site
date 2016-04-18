@@ -1,0 +1,18 @@
+<div class="github-fork-ribbon-wrapper right">
+  <div class="github-fork-ribbon">
+    <a href="https://github.com/andyyoung/sitehound">Fork me on GitHub</a>
+  </div>
+</div>
+
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation"{% if page.url == '/' %} class="active"{% endif %}><a href="{{ site.url }}/">Home</a></li>
+      <li role="presentation"{% if page.url == '/how-it-works' %} class="active"{% endif %}><a href="{{ site.url }}/how-it-works">How it Works</a></li>
+      <li role="presentation"{% if page.url == '/getting-started' %} class="active"{% endif %}><a href="{{ site.url }}/getting-started">Getting Started</a></li>
+      <li role="presentation"{% if page.url == '/user-guide' %} class="active"{% endif %}><a href="{{ site.url }}/user-guide">User Guide</a></li>
+      <li role="presentation"{% if page.url == '/api-reference' %} class="active"{% endif %}><a href="{{ site.url }}/api-reference">API Reference</a></li>
+    </ul>
+  </nav>
+  <h3 class="text-muted" data-toc-skip><a href="{{ site.url }}/">SiteHound</a></h3>
+</div>
