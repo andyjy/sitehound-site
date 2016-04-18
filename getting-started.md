@@ -32,13 +32,12 @@ SiteHound relies on the Segment.com snippet to send data to your analytics tooli
 - **Copy/paste the snippet** from the Segment.com web interface setup page.
   - _The snippet looks like the example below._
   - _Ensure the API key for the correct project is filled out in the call to `analytics.load()`._
-- **Remove the call to `analytics.page()`** that’s included within the Segment snippet by default, as well as any other calls to `analytics.page()`.
-  - _SiteHound will take care of recording page views._
 
 {% highlight html %}
 <script type="text/javascript">
 !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0"; 
-analytics.load("<YOUR SEGMENT KEY HERE>"); 
+analytics.load("<YOUR SEGMENT WRITE KEY HERE>");
+analytics.page();
 }}(); 
 </script>
 {% endhighlight %}
