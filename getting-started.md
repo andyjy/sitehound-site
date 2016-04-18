@@ -8,26 +8,32 @@ permalink: /getting-started
 
 Follow the steps below to install and configure the SiteHound javascript on your website. Yay!
 
-## Overview
-
 1. Drop the SiteHound tag into your website templates - or via a tag manager.
 2. Use a few lines of Javascript to specify the key events you want to track, based on your site’s URL structure, `<body>` CSS classes, or your own custom script.
-3. Analyse your resultant data - including all SiteHound events and properties - via Mixpanel or any tool you have connected via Segment.
+3. Analyse your data - including all SiteHound events and properties - via Mixpanel or any tool you have connected via Segment.
 
 
-### If you already have tracking set up
+## If you already have tracking set up
 
 SiteHound is compatible with your existing tracking - installing the library should have no adverse effects, and will automatically enhance your existing events with additional properties in addition to the events it tracks automatically.
 
 ## Installing SiteHound
 
-### 1 - Add the Segment.com javascript snippet to your site
+To install SiteHound, you just need to add some Javascript to the `<head>` of your website.
+
+If you use a tag manager, you can paste the scripts below into a custom HTML tag.
+
+You can use the same scripts (snippets and configuration) on all pages of your site.
+
+### 1 - Add the Segment.com snippet
+
+SiteHound relies on the Segment.com snippet to send data to your analytics tooling, so ensure that's included first:
 
 - **Copy/paste the snippet** from the Segment.com web interface setup page.
   - _The snippet looks like the example below._
   - _Ensure the API key for the correct project is filled out in the call to `analytics.load()`._
 - **Remove the call to `analytics.page()`** that’s included within the Segment snippet by default, as well as any other calls to `analytics.page()`.
-  - _The SiteHound library will take care of recording page views._
+  - _SiteHound will take care of recording page views._
 
 {% highlight html %}
 <script type="text/javascript">
@@ -37,7 +43,7 @@ analytics.load("<YOUR SEGMENT KEY HERE>");
 </script>
 {% endhighlight %}
 
-### 2 - Add the SiteHound snippet to your site
+### 2 - Add the SiteHound snippet
 
 Copy and paste the below into your site after the Segment.com snippet. Simples. 👌
 
@@ -48,10 +54,10 @@ sitehound.load("segment");
 </script>
 {% endhighlight %}
 
-### 3. Add config for your site, & trigger the library when done
+### 3. Add config for your site & trigger the tracking when done
 
 - You can use the same config Javascript on all pages - just paste into your HTML template after the snippets above.
-- See the reference below for details of all config options.
+- See the [API reference]({{ site.url }}/api-reference) for details of all config options.
 
 {% highlight html %}
 <script type="text/javascript">
