@@ -6,7 +6,7 @@ permalink: /user-guide
 
 # User Guide
 
-Once you have SiteHound installed and sending data to your analytics platform of choice, you can take advantage of the events and properties tracked by SiteHound to answer many questions about your user behaviour and product performance.
+Once you have SiteHound [installed]({{ site.url }}/getting-started) and sending data to your analytics platform of choice, you can take advantage of the events and properties tracked by SiteHound to answer many questions about your user behaviour and product performance.
 
 In addition to events that you configure or track manually, SiteHound tracks the following events and properties for you:
 
