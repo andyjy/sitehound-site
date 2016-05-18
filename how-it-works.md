@@ -6,18 +6,23 @@ permalink: /how-it-works
 
 # How it Works
 
-Typical analytics tools such as Segment and Mixpanel don't do a great job of tracking all source attribution and behaviour data. This makes it hard/impossible to answer many key questions about campaign success and user behaviour.
+SiteHound does two things:
+
+1. Make it really easy to **track key events** on your website based on the user visiting particular URLs or URL patterns.
+2. Automatically **augment your tracking** with a bunch of useful properties for marketing and product engagement analysis.
+
+## Tracking key events
 
 SiteHound is designed around the observation that most key events useful for answering business-centric questions are linked to users viewing particular types of pages. For example:
 
-- An e-commerce site should likely track when users view a:
+- An e-commerce site should likely track when users view each of the following:
   - landing page
   - category page
   - product page
   - cart page
   - checkout page
   - order complete page
-- For a SaaS business relevant page types to track typically include:
+- For a SaaS business, relevant pages to track typically include:
   - landing pages 
   - blog articles
   - content marketing pages
@@ -25,9 +30,7 @@ SiteHound is designed around the observation that most key events useful for ans
   - product dashboard
   - subscription upgrade success
 
-### Tracking key events
-
-SiteHound therefore makes it super-easy to track key events via a single configuration object that maps event names to URL patterns and/or `<body>` CSS classes, typically covering many or most required events in one easily comprehendible and maintainable location.
+SiteHound makes it super-easy to track key events via a single configuration object that maps event names to URL patterns and/or `<body>` CSS classes, typically covering many or most required events in one easily comprehendible and maintainable location.
 
 Here's an example:
 
@@ -43,26 +46,26 @@ sitehound.track = {
 }
 {% endhighlight %}
 
+## Marketing and engagment data
 
-### Tracking custom events
+Typical analytics tools such as Segment and Mixpanel don't do a great job of tracking all source attribution and behaviour data. This makes it hard/impossible to answer many key questions about campaign success and user behaviour.
 
-Tracking custom events and properties is straightforward via `identify()` and `track()`/`trackLink()`/`trackForm()` calls using a interface familiar to anyone who’s used Segment.com's analytics.js.
+SiteHound automatically augments your tracking with a bunch of useful properties on each user and event, including:
 
-Additionally, SiteHound augments this basic event tracking with a plethora of useful additional data and events about your users and behaviour that will soon become invaluable to how you answer analytics questions with your platform of choice.
-
-## Features
-
-### Tracking
-
-- Landing pages and initial referrer
 - First, mid and last-touch source attribution
+- Landing page and initial referrer
 - User login/logout and identification with automatic aliasing
 - Session tracking with duration and session depth information for every event
-- Augments your existing tracking and any events you track manually
 
-### Implementation
+## Tracking custom events
 
-- Pluggable javascript interface supporting Segment’s analytics.js and Mixpanel.js, with easy development of support for other platforms possible via an adaptor interface.
+Tracking custom events and properties is straightforward via `identify()` and `track()`/`trackLink()`/`trackForm()` calls using a interface familiar to anyone who’s used Segment.com's [analytics.js](https://segment.com/docs/libraries/analytics.js).
+
+## Implementation
+
+SiteHound consists of a core Javascript library, plus a snippet used to load the core library. See [Getting Started]({{ site.url }}/getting-started) for how to implement SiteHound on your site.
+
+Sitehound implements a pluggable javascript interface supporting Segment’s analytics.js and Mixpanel.js, with easy development of support for other platforms possible via creation of new adaptors.
 
 ---
 
